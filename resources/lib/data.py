@@ -201,7 +201,7 @@ def parse_tvshows_recommended(request, list_type, full_liz, usecache, plot_enabl
                 json_query2 = xbmcgui.Window(10000).getProperty(prefix + "-data-" + str(tvshow['tvshowid']))
                 if json_query2:
                     json_query2 = simplejson.loads(json_query2)
-                    if "result" in json_query2 and json_query2['result'] is not None and 'episodes' in json_query2['result']:
+                    if "result" in json_query2 and json_query2['result'] is not None and 'episodes' in json_query2['result'] and len(json_query2['result']['episodes']) > 0:
                         for episode in json_query2['result']['episodes']:
                             nEpisode = "%.2d" % float(episode['episode'])
                             nSeason = "%.2d" % float(episode['season'])
